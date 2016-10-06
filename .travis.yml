@@ -1,0 +1,24 @@
+language: android
+
+android:
+  components:
+    - build-tools-24.0.2
+    - android-23
+    - extra-android-m2repository
+    - extra-google-m2repository
+
+node_js:
+  - 5.10
+
+sudo: false
+
+install:
+  - npm install -g cordova
+
+before_script:
+  - cd Example
+  - cordova platform add android
+  - cordova plugin add ..
+
+script:
+  - cordova build android
