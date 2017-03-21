@@ -26,10 +26,6 @@
     NSString* userId      = options[@"userId"];
     NSString* userEmail   = options[@"email"];
 
-    if ([userId isKindOfClass:[NSNumber class]]) {
-        userId = [(NSNumber *)userId stringValue];
-    }
-
     if (userId.length > 0 && userEmail.length > 0) {
         [Intercom registerUserWithUserId:userId email:userEmail];
         [self sendSuccess:command];
